@@ -1,0 +1,295 @@
+
+:root {
+  font-family: Inter, system-ui, Arial, sans-serif;
+  color: #202738;
+  background: #f5f7fb;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 240px;
+  padding: 28px 20px;
+  background: #182238;
+  color: white;
+}
+
+.sidebar h2 {
+  margin-bottom: 4px;
+}
+
+.sidebar p {
+  color: #b7c2d7;
+  font-size: 13px;
+}
+
+nav {
+  display: grid;
+  gap: 8px;
+  margin-top: 38px;
+}
+
+nav a {
+  color: #dce5f4;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+nav a:hover {
+  background: #2b3953;
+}
+
+.sidebar-footer {
+  position: absolute;
+  bottom: 25px;
+  color: #b7c2d7;
+  font-size: 12px;
+}
+
+main {
+  margin-left: 240px;
+  padding: 32px;
+  max-width: 1500px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+h1 {
+  margin: 5px 0;
+  font-size: 32px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.eyebrow {
+  color: #5268c9;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.muted {
+  color: #6b7485;
+  line-height: 1.6;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #e5e9f1;
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 20px #20273808;
+}
+
+.stats .card p {
+  color: #6b7485;
+  margin-top: 0;
+}
+
+.stats .card h2 {
+  margin-bottom: 0;
+}
+
+.status {
+  background: #e7f7ee;
+  color: #18794e;
+  border-radius: 20px;
+  padding: 9px 13px;
+  font-size: 13px;
+}
+
+.status.error {
+  background: #ffeded;
+  color: #b42318;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  background: #5268c9;
+  color: white;
+  padding: 11px 16px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+}
+
+button:hover {
+  filter: brightness(0.94);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+button.secondary {
+  color: #34415d;
+  background: #edf0f7;
+}
+
+.actions, .search-row {
+  display: flex;
+  gap: 10px;
+  margin: 18px 0;
+}
+
+input, select, textarea {
+  display: block;
+  width: 100%;
+  margin: 8px 0 16px;
+  padding: 12px;
+  border: 1px solid #dce1eb;
+  border-radius: 8px;
+  background: white;
+  color: inherit;
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+label {
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.checkbox-label input {
+  width: auto;
+  margin: 0;
+}
+
+.result {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  overflow-x: auto;
+  background: #f6f8fc;
+  border: 1px solid #e8ebf3;
+  border-radius: 8px;
+  padding: 16px;
+  min-height: 60px;
+  font: 13px/1.65 ui-monospace, Consolas, monospace;
+}
+
+.file-list {
+  display: grid;
+  gap: 10px;
+}
+
+.file-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #edf0f5;
+  padding: 12px 0;
+}
+
+.file-row:last-child {
+  border-bottom: 0;
+}
+
+.file-row small {
+  display: block;
+  color: #6b7485;
+  margin-top: 5px;
+  overflow-wrap: anywhere;
+}
+
+.file-state {
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.file-state.ok {
+  color: #18794e;
+}
+
+.file-state.missing {
+  color: #b42318;
+}
+
+.section {
+  scroll-margin-top: 20px;
+}
+
+footer {
+  padding: 18px 0;
+  color: #7b8494;
+  font-size: 12px;
+}
+
+@media (max-width: 850px) {
+  .sidebar {
+    position: static;
+    width: auto;
+  }
+
+  .sidebar-footer {
+    display: none;
+  }
+
+  nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 20px;
+  }
+
+  main {
+    margin-left: 0;
+    padding: 18px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .actions, .search-row {
+    flex-direction: column;
+  }
+
+  .card {
+    padding: 17px;
+  }
+}

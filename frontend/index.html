@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Document Intelligence</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>DocuMind AI</h2>
+    <p>Document Intelligence</p>
+    <nav>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#assistant">AI Assistant</a>
+      <a href="#claims">Claim Search</a>
+      <a href="#audit">Audit Trail</a>
+    </nav>
+    <div class="sidebar-footer">Powered by FastAPI</div>
+  </aside>
+
+  <main>
+    <header>
+      <div>
+        <p class="eyebrow">AI DOCUMENT INTELLIGENCE</p>
+        <h1>Dashboard</h1>
+        <p class="muted">Explore claims and ask questions about documents.</p>
+      </div>
+      <span id="apiStatus" class="status">Checking API...</span>
+    </header>
+
+    <section id="dashboard">
+      <div class="stats">
+        <article class="card">
+          <p>API Status</p>
+          <h2 id="healthValue">Checking...</h2>
+        </article>
+        <article class="card">
+          <p>Output Files Found</p>
+          <h2 id="fileCount">—</h2>
+        </article>
+        <article class="card">
+          <p>Pipeline Summary</p>
+          <h2 id="pipelineValue">Not checked</h2>
+        </article>
+      </div>
+
+      <article class="card">
+        <h2>Pipeline Controls</h2>
+        <p class="muted">Run the complete processing pipeline or refresh its status.</p>
+        <div class="actions">
+          <button id="refreshBtn" class="secondary">Refresh Status</button>
+          <button id="runPipelineBtn">Run Pipeline</button>
+        </div>
+        <pre id="pipelineResult" class="result">Pipeline information will appear here.</pre>
+      </article>
+
+      <article class="card">
+        <h2>Output Files</h2>
+        <div id="outputFiles" class="file-list">Loading output status...</div>
+      </article>
+    </section>
+
+    <section id="assistant" class="card section">
+      <h2>AI Assistant</h2>
+      <p class="muted">Choose RAG for document-grounded answers or Agent for tool selection.</p>
+
+      <label for="mode">Question mode</label>
+      <select id="mode">
+        <option value="rag">RAG — Search document context</option>
+        <option value="agent">LLM Agent — Choose a tool</option>
+      </select>
+
+      <label for="question">Your question</label>
+      <textarea id="question" rows="3"
+        placeholder="e.g. What is the total claim amount for CLM2024001847?"></textarea>
+
+      <div id="ragOptions">
+        <label for="topK">Document chunks to retrieve</label>
+        <select id="topK">
+          <option value="1">1 chunk</option>
+          <option value="3" selected>3 chunks</option>
+          <option value="5">5 chunks</option>
+        </select>
+        <label class="checkbox-label">
+          <input id="useCache" type="checkbox" checked />
+          Use cached answers
+        </label>
+      </div>
+
+      <button id="askBtn">Ask Question</button>
+      <pre id="answerResult" class="result">Your answer will appear here.</pre>
+    </section>
+
+    <section id="claims" class="card section">
+      <h2>Claim Search</h2>
+      <p class="muted">Look up a claim using its exact claim ID.</p>
+      <div class="search-row">
+        <input id="claimId" placeholder="e.g. CLM2024001847" />
+        <button id="searchClaimBtn">Search</button>
+      </div>
+      <pre id="claimResult" class="result">Claim details will appear here.</pre>
+    </section>
+
+    <section id="audit" class="card section">
+      <h2>Agent Audit Trail</h2>
+      <p class="muted">View the recorded history of agent requests.</p>
+      <button id="auditBtn" class="secondary">Load Audit Trail</button>
+      <pre id="auditResult" class="result">Audit entries will appear here.</pre>
+    </section>
+
+    <footer>AI Document Intelligence · Built with HTML, CSS, JavaScript & FastAPI</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -41,7 +41,7 @@ def process_pdfs(raw_dir: Path, processed_dir: Path) -> list[Path]:
         claim_output_dir = text_output_dir / claim_id
         claim_output_dir.mkdir(parents=True, exist_ok=True)
 
-        output_path = claim_output_dir / f"{pdf_path.stem}.txt"
+        output_path = claim_output_dir / f"{pdf_path.stem }.txt"
 
         if output_path.exists():
             print(f"Skipping already extracted PDF: {pdf_path.name} ({claim_id})")
